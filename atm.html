@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM PROMPT</title>
+</head>
+<body>
+    <script>
+        alert(`Welcome to the City Bank!!
+PLEASE INSERT YOUR CARD`);
+
+prompt(`PLEASE SELECT A LANGUAGE:
+1. English
+2. Yoruba
+3. Igbo
+4. Hausa`);
+
+prompt(`PLEASE ENTER YOUR ATM PIN AND PRESS ENTER`);
+
+let transaction = +prompt(`Please Select a Transaction
+1. Withdrawal
+2. Deposit Money
+3. Transfer Money
+4. Make a Payment
+5. Account Balance
+6. Pin Change
+7. Other Services`);
+
+if (transaction === 1 ) {
+    withdrawalAmount = +prompt(`Select Amount
+    1. #1000
+    2. #5000
+    3. #10000
+    4. #15000
+    5. #20000
+    6. Other
+    7. cancel`)
+    if (withdrawalAmount >= 1 && withdrawalAmount <= 5) {
+        alert("Please take your cash");
+    }else if (withdrawalAmount === 6) {
+        prompt("Please enter an amount: A multiple of 1000");
+        alert("Unable to dispense cash: Please select from the options");
+    }else if (withdrawalAmount === 7) {
+        alert("Transaction Cancelled");
+    }else {
+        alert("Invalid transaction");
+    }let endOfTransaction = +prompt(`Do you want to perform another transaction?
+    1. Yes
+    2. No`);
+    if(endOfTransaction === 1) {
+        alert("Enter your pin and continue from the start")
+    }else {
+        alert("Thank you for banking with us.")
+    }alert("Please take your card");
+
+
+
+}else if ( transaction ===3) {
+    let transferOptions = +prompt(`Select an option
+    1. Quickteller
+    2. Fund Transfer
+    3. FastTransfer
+    4. Mobile Transfer
+    5. Cancel`);
+    if (transferOptions >=1 && transferOptions <= 4) {
+        let bankOptions = +prompt(`Select an option
+        1. Inter Bank
+        2. Intra Bank `);
+        if (bankOptions === 1) {
+            let accountType =+prompt(`Select your account type:
+            1. Savings
+            2. Current
+            3. Asset`);
+            accountType = +prompt(`Please select recipient's account type
+            1. Savings
+            2. Current
+            3. Asset`);
+
+            let recipientBank = +prompt(`Select Recipient's Bank
+            1. First Bank
+            2. Guarantee Trust Bank
+            3. FCMB
+            4. UBA
+            5. Others `);
+            if(recipientBank >=1 && recipientBank <= 5) {
+                prompt("Enter Account Number you wish to transfer to");
+                prompt("Enter Amount");
+                alert("Click ok if you accept the N100 charge ");
+                alert("Confirm details and click ok if confirmed");
+                alert(`Transaction completed
+                Please take your receipt for your reference`)
+            }else {
+                alert("Invalid options");
+            }
+        }else if (bankOptions == 2) {
+            prompt(`Select your account type:
+            1. Savings
+            2. Current
+            3. Asset`);
+            prompt(`Please select recipient's account type
+            1. Savings
+            2. Current
+            3. Asset`);
+            prompt("Enter Recipient's Account Number ");
+                prompt("Enter Amount");
+                alert("Click ok if you accept the N100 charge ");
+                alert("Confirm details and click ok if confirmed");
+                alert(`Transaction completed
+                Please take your receipt for your reference`)
+        }else {
+            alert("Invalid option")
+        }
+    }else if (transferOptions === 5) {
+        alert("Transaction cancelled");
+    }else {
+        alert("Invalid Transaction");
+    }
+}else if (transaction > 7) {
+    alert("Invalid Option");
+}else {
+    alert("Sorry!!! We are still working on other options");
+}
+
+    </script>
+</body>
+</html>

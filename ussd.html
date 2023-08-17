@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>USSD Prompt</title>
+  </head>
+  <h1>You are Welcome!!!</h1>
+  <body>
+    <script>
+        let bankCode = prompt("Enter your bank code!");
+        let options = +prompt(`Select a transaction:
+                  1. Airtime-Self
+                  2. Airtime-Others
+                  3. Data
+                  4. Trsf-InterBank
+                  5. Trsf-IntraBank
+                  6. Trsf- MFB /eWallet
+                  7. Quick Transfer
+                  8. Pay Bills
+                  9. Next`);
+        if (options === 1) {
+          let amountSelf = +prompt("Please enter amount:");
+          alert(`Your reacharge of ${amountSelf} was successfull`);
+        } else if (options === 2) {
+          let mobileNumber = String(
+            prompt("Please enter 3rd party mobile number:")
+          );
+          let amountOthers = Number(prompt("Please enter amount"));
+          let cancel = prompt(
+            `Enter your PIN or Token code to Top Up ${mobileNumber} with NGN ${amountOthers} or enter 0 to cancel`
+          );
+          if (cancel == 0) {
+            alert("Transaction cancelled");
+          } else {
+            alert("Transaction successfull");
+          }
+        } else if (options === 4) {
+          let amountIntra = +prompt("Please enter amount");
+          let accountNumber = String(
+            prompt(`Enter recipient's ACCOUNT NUMBER or PHONE NO or SURNAME`)
+          );
+          let accountName = String(prompt(`Enter Recipient's Name`));
+          let charges = 50;
+          let cancel = prompt(
+            `Enter your PIN or Token to confirm transfer of NGN ${amountIntra} to ${accountName}, ${accountNumber} at NGN${charges} charge. Enter 0 to cancel`
+          );
+          if (cancel == 0) {
+            alert("Transaction cancelled");
+          } else {
+            alert("Transaction successfull");
+          }
+        } else if (options === 5) {
+          let amountInter = Number(prompt("Please enter amount:"));
+          let accountNumber = String(
+            prompt(`Enter recipient's ACCOUNT NUMBER or SURNAME`)
+          );
+          let bank = +prompt(`Please enter:
+          1. First Bank
+          2. Access (Diamond)
+          3. Access
+          4. Zenith
+          5. UBA
+          6. Ecobank
+          7. Polaris Bank
+          8. FCMB
+          9. more options...`);
+          if (bank >= 1 && bank <= 8) {
+            prompt(`Enter your PIN to confirm transfer of NGN
+              ${amountInter} to ${accountName}, ${accountNumber} at
+              N${charges} charge. Enter 0 to cancel.`);
+            if (amountInter >= 30000) {
+              prompt(`Enter your date of birth(DDMMYYYY) or the
+                  last 6 digits of your active debit card or TOKEN
+                  code`);
+              alert("Transfer completed");
+            } else {
+              alert("Transfer completed");
+            }
+          } else {
+            alert("Select a valid option");
+          }
+        }
+      </script>
+  </body>
+</html>
